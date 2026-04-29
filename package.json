@@ -1,5 +1,5 @@
 {
-  "name": "api-integration-data-processing-assessment",
+  "name": "genderize-api",
   "version": "1.0.0",
   "description": "Express API for name classification using Genderize",
   "main": "server.js",

@@ -1,4 +1,4 @@
-# API Integration & Data Processing Assessment
+# genderize-api
 
 A Node.js Express API that provides a single classification endpoint, `GET /api/classify`, which calls the external [Genderize API](https://api.genderize.io), validates input, and returns a processed prediction payload.
 
