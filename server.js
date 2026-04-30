@@ -2,7 +2,12 @@ const express = require("express");
 const classifyRoute = require("./routes/classify");
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = process.env.PORT;
+
+if (!PORT) {
+  console.error("PORT environment variable is required");
+  process.exit(1);
+}
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -40,5 +45,15 @@ server.on("error", (err) => {
   }
 
   console.error("Server failed to start", err);
+  process.exit(1);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught exception:", err);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled rejection:", reason);
   process.exit(1);
 });

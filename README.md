@@ -4,8 +4,8 @@ A Node.js Express API that provides a single classification endpoint, `GET /api/
 
 ## Base URL
 
-- Local default: `http://localhost:3000`
-- Configurable via environment variable: `PORT`
+- Runtime host/port is provided by the deployment environment.
+- This app requires `PORT` to be set (no hardcoded fallback).
 
 ## Tech Stack
 
@@ -41,7 +41,8 @@ node server.js
 
 Server startup behavior:
 
-- Listens on `process.env.PORT` or `3000` by default.
+- Listens on `process.env.PORT`.
+- Exits on startup if `PORT` is missing.
 - If the selected port is already in use, startup fails with a clear error and exits.
 
 ---
